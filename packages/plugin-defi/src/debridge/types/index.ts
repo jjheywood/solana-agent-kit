@@ -73,6 +73,7 @@ export interface deBridgeOrderInput {
   srcAllowedCancelBeneficiary?: string;
   referralCode?: number;
   affiliateFeePercent?: number;
+  affiliateFeeRecipient?: string;
   srcChainOrderAuthorityAddress?: string;
   srcChainRefundAddress?: string;
   dstChainOrderAuthorityAddress?: string;

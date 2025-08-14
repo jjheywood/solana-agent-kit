@@ -122,6 +122,10 @@ const createDebridgeBridgeOrderAction: Action = {
       .number()
       .nullable()
       .describe("Optional: Affiliate fee percentage"),
+    affiliateFeeRecipient: z
+      .string()
+      .nullable()
+      .describe("Optional: Affiliate fee recipient"),
   }),
   handler: async (agent: SolanaAgentKit, input: Record<string, any>) => {
     try {
@@ -142,11 +146,12 @@ const createDebridgeBridgeOrderAction: Action = {
         srcIntermediaryTokenAddress: input.srcIntermediaryTokenAddress,
         dstIntermediaryTokenAddress: input.dstIntermediaryTokenAddress,
         dstIntermediaryTokenSpenderAddress:
-          input.dstIntermediaryTokenSpenderAddress,
+        input.dstIntermediaryTokenSpenderAddress,
         intermediaryTokenUSDPrice: input.intermediaryTokenUSDPrice,
         srcAllowedCancelBeneficiary: input.srcAllowedCancelBeneficiary,
         referralCode: input.referralCode,
         affiliateFeePercent: input.affiliateFeePercent,
+        affiliateFeeRecipient: input.affiliateFeeRecipient,
       });
 
       return {
